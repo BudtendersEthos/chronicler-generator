@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronicler Case Generator</title>
+<link rel="stylesheet" href="generator.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Chronicler Case Study Generator</h1>
+
+  <input id="title" placeholder="Case Title">
+  <input id="subtitle" placeholder="Subtitle">
+
+  <textarea id="summary" placeholder="Executive Summary"></textarea>
+  <textarea id="history" placeholder="Historical Context"></textarea>
+  <textarea id="product" placeholder="Product Architecture (comma separated)"></textarea>
+  <textarea id="contribution" placeholder="Chronicler Contribution"></textarea>
+  <textarea id="impact" placeholder="Market Impact (comma separated)"></textarea>
+  <textarea id="authority" placeholder="Strategic Interpretation"></textarea>
+
+  <button onclick="generate()">Generate Case Study</button>
+
+  <h2>Output</h2>
+  <textarea id="output"></textarea>
+
+</div>
+
+<script src="generator.js"></script>
+</body>
+</html>
