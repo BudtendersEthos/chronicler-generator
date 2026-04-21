@@ -13,6 +13,14 @@
 
   <h1>Chronicler Case Study Generator</h1>
 
+  <!-- MODE -->
+  <label>Output Mode:</label>
+  <select id="mode">
+    <option value="wp">WordPress (clean blocks)</option>
+    <option value="full">Full HTML Page</option>
+  </select>
+
+  <!-- INPUTS -->
   <input id="title" placeholder="Case Title">
   <input id="subtitle" placeholder="Subtitle">
 
@@ -23,7 +31,11 @@
   <textarea id="impact" placeholder="Market Impact (comma separated)"></textarea>
   <textarea id="authority" placeholder="Strategic Interpretation"></textarea>
 
-  <button onclick="generate()">Generate Case Study</button>
+  <!-- ACTIONS -->
+  <button onclick="generate()">Generate</button>
+  <button onclick="copyOutput()">Copy</button>
+  <button onclick="clearForm()">Clear</button>
+  <button onclick="loadPreset()">Load Turn Preset</button>
 
   <h2>Output</h2>
   <textarea id="output"></textarea>
