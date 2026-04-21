@@ -1,5 +1,6 @@
 function generate() {
 
+  const mode = document.getElementById("mode").value;
   const title = document.getElementById("title").value;
   const subtitle = document.getElementById("subtitle").value;
   const summary = document.getElementById("summary").value;
@@ -12,42 +13,64 @@ function generate() {
   let productList = product.map(item => `<li>${item.trim()}</li>`).join("");
   let impactList = impact.map(item => `<li>${item.trim()}</li>`).join("");
 
-  const output = `
-<header class="hero">
-  <h1>${title}</h1>
-  <p>${subtitle}</p>
-</header>
+  let content = `
+<h1>${title}</h1>
+<p><em>${subtitle}</em></p>
 
-<section class="card">
-  <h2>Executive Summary</h2>
-  <p>${summary}</p>
-</section>
+<h2>Executive Summary</h2>
+<p>${summary}</p>
 
-<section class="card">
-  <h2>Historical Context</h2>
-  <p>${history}</p>
-</section>
+<h2>Historical Context</h2>
+<p>${history}</p>
 
-<section class="card">
-  <h2>Product Architecture</h2>
-  <ul>${productList}</ul>
-</section>
+<h2>Product Architecture</h2>
+<ul>${productList}</ul>
 
-<section class="card">
-  <h2>Chronicler Contribution</h2>
-  <p>${contribution}</p>
-</section>
+<h2>Chronicler Contribution</h2>
+<p>${contribution}</p>
 
-<section class="card">
-  <h2>Market Impact</h2>
-  <ul>${impactList}</ul>
-</section>
+<h2>Market Impact</h2>
+<ul>${impactList}</ul>
 
-<section class="card">
-  <h2>Strategic Interpretation</h2>
-  <p>${authority}</p>
-</section>
+<h2>Strategic Interpretation</h2>
+<p>${authority}</p>
 `;
 
-  document.getElementById("output").value = output;
+  if (mode === "full") {
+    content = `
+<!DOCTYPE html>
+<html>
+<head>
+<title>${title}</title>
+</head>
+<body>
+${content}
+</body>
+</html>
+`;
+  }
+
+  document.getElementById("output").value = content;
+}
+
+function copyOutput() {
+  const output = document.getElementById("output");
+  output.select();
+  document.execCommand("copy");
+  alert("Copied to clipboard");
+}
+
+function clearForm() {
+  document.querySelectorAll("input, textarea").forEach(el => el.value = "");
+}
+
+function loadPreset() {
+  document.getElementById("title").value = "turn PodPak Case Study";
+  document.getElementById("subtitle").value = "Narrative Infrastructure in Action";
+  document.getElementById("summary").value = "Chronicler accelerated adoption through narrative deployment.";
+  document.getElementById("history").value = "PodPak standardized vape experience by removing user error.";
+  document.getElementById("product").value = "Closed-loop system, Magnetic pods, Thermal regulation";
+  document.getElementById("contribution").value = "Budtender education and narrative translation.";
+  document.getElementById("impact").value = "Top seller status, Repeat purchases, High adoption";
+  document.getElementById("authority").value = "Demonstrates control at the selection layer.";
 }
