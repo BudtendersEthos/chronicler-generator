@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chronicler Case Generator</title>
-<link rel="stylesheet" href="generator.css">
+  <meta charset="UTF-8">
+  <title>Chronicler Generator</title>
+  <link rel="stylesheet" href="generator.css">
 </head>
 
 <body>
@@ -13,12 +12,25 @@
 
   <h1>Chronicler Case Study Generator</h1>
 
-  <!-- MODE -->
+  <!-- OUTPUT MODE -->
   <label>Output Mode:</label>
   <select id="mode">
     <option value="wp">WordPress (clean blocks)</option>
     <option value="full">Full HTML Page</option>
   </select>
+
+  <br><br>
+
+  <!-- HALL OF RECORD -->
+  <label>Hall of Record Status:</label>
+  <select id="record">
+    <option value="none">None</option>
+    <option value="candidate">Candidate</option>
+    <option value="verified">Verified Entry</option>
+    <option value="hall">Hall of Record</option>
+  </select>
+
+  <br><br>
 
   <!-- INPUTS -->
   <input id="title" placeholder="Case Title">
@@ -26,10 +38,14 @@
 
   <textarea id="summary" placeholder="Executive Summary"></textarea>
   <textarea id="history" placeholder="Historical Context"></textarea>
-  <textarea id="product" placeholder="Product Architecture (comma separated)"></textarea>
+
+  <textarea id="product" placeholder="Product Features (comma separated)"></textarea>
   <textarea id="contribution" placeholder="Chronicler Contribution"></textarea>
   <textarea id="impact" placeholder="Market Impact (comma separated)"></textarea>
+
   <textarea id="authority" placeholder="Strategic Interpretation"></textarea>
+
+  <br><br>
 
   <!-- ACTIONS -->
   <button onclick="generate()">Generate</button>
@@ -37,11 +53,14 @@
   <button onclick="clearForm()">Clear</button>
   <button onclick="loadPreset()">Load Turn Preset</button>
 
-  <h2>Output</h2>
-  <textarea id="output"></textarea>
+  <br><br>
+
+  <!-- OUTPUT -->
+  <textarea id="output" placeholder="Generated output appears here..."></textarea>
 
 </div>
 
 <script src="generator.js"></script>
+
 </body>
 </html>
