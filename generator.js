@@ -98,3 +98,59 @@ function loadPreset() {
   document.getElementById("impact").value = "Top seller, Repeat purchases, High adoption";
   document.getElementById("authority").value = "Demonstrates influence at the selection layer.";
 }
+
+function downloadCertificate() {
+
+  const title = document.getElementById("title").value || "Unnamed Entry";
+  const record = document.getElementById("record").value;
+
+  let designation = "No Designation";
+
+  if (record === "candidate") designation = "Candidate Status";
+  if (record === "verified") designation = "Verified Entry";
+  if (record === "hall") designation = "Hall of Record";
+
+  const date = new Date().toLocaleDateString();
+
+  const certID = "CR-" + Math.floor(Math.random() * 100000);
+
+  const content = `
+  <html>
+  <head>
+    <title>Certificate</title>
+  </head>
+  <body style="font-family:Georgia,serif;text-align:center;padding:40px;background:#f5f1e6;">
+
+    <h1 style="color:#8c6a2f;">Chronicler Cannabis</h1>
+    <h2>Official Certification</h2>
+
+    <p>This document certifies that</p>
+
+    <h2>${title}</h2>
+
+    <p>has been designated as</p>
+
+    <h3 style="color:#8c6a2f;">${designation}</h3>
+
+    <p>under the Chronicler Hall of Record system.</p>
+
+    <br><br>
+
+    <p><strong>Certificate ID:</strong> ${certID}</p>
+    <p><strong>Date Issued:</strong> ${date}</p>
+
+    <br><br>
+
+    <p>Certified by Chronicler Cannabis</p>
+
+  </body>
+  </html>
+  `;
+
+  const blob = new Blob([content], { type: "text/html" });
+  const link = document.createElement("a");
+
+  link.href = URL.createObjectURL(blob);
+  link.download = "chronicler_certificate.html";
+  link.click();
+}
